@@ -1,3 +1,8 @@
+/*
+ * @Author: Meng Tian
+ * @Date: 2023-02-02 15:58:26
+ * @Descripttion: iterator overwrite
+ */
 #include <iostream>
 #include <vector>
 
@@ -22,9 +27,11 @@ class Iterator {
   using refereence = char&;
 
   // TODO: Define the constructor
+  Iterator()
+
   const char& operator*() const {
     // TODO: Your code here
-    return 0;
+    return *this;
   }
 
   const char* operator->() const {
@@ -72,9 +79,13 @@ class Flatten {
 
 int main() {
   auto arr = generate_array();
+
+  // Range-based for loop
+  // Ranges are sequences of elements, including arrays, containers, and any other type supporting the functions begin and end.
   for (char c : Flatten(arr)) {
     std::cout << c;
   }
+
   std::cout << std::endl;
   return 0;
 }
